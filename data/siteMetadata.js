@@ -8,13 +8,12 @@ const siteMetadata = {
   theme: 'system', // system, dark or light
   siteUrl: 'https://leo-blog-tawny.vercel.app/',
   siteRepo: 'https://github.com/leoyug/leo-blog',
-  siteLogo: `${process.env.BASE_PATH || ''}/static/images/leo-logo.png`,
+  siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/bleog-card.png`,
   email: 'incessantleo@foxmail.com',
   github: 'https://github.com/leoyug',
-  x: 'https://x.com/Incessant_Leo',
   linkedin: 'https://www.linkedin.com',
-  instagram: 'https://www.instagram.com/incessantleo/',
+  instagram: 'https://www.instagram.com/incessantleo',
   locale: 'zh-CN',
   // set to true if you want a navbar fixed to the top
   stickyNav: false,

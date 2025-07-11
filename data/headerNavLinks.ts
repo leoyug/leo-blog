@@ -2,8 +2,8 @@ const headerNavLinks = [
   { href: '/', title: 'Home' },
   { href: '/blog', title: 'Blog' },
   { href: '/tags', title: 'Tags' },
-  { href: '/projects', title: 'portfolio' },
-  { href: 'https://photos.incessantleo.com', title: 'photos' },
+  { href: '/projects', title: 'Portfolio' },
+  { href: 'https://photos.incessantleo.com', title: 'Photos' },
   { href: '/about', title: 'About' },
 ]
 
