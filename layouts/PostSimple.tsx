@@ -39,7 +39,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                 {/* 文章标题 */}
                 <div>
                   <PageTitle>
-                    <span className="text-4xl leading-8 font-bold tracking-tight text-gray-700 dark:text-gray-200">
+                    <span className="text-4xl leading-8 font-bold tracking-tight text-gray-900 dark:text-gray-100">
                       {title}
                     </span>
                   </PageTitle>
@@ -69,7 +69,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
             <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 xl:divide-y-0 dark:divide-gray-700">
               {/* 正文内容 */}
               <div className="divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0 dark:divide-gray-700">
-                <div className="prose dark:prose-invert max-w-none pt-10 pb-8">
+                <div className="prose dark:prose-invert max-w-none pt-10 pb-8 ">
                   {children}
                 </div>
               </div>
