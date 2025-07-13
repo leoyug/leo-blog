@@ -17,7 +17,7 @@ const Sun = () => (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 -1 20 20"
     fill="currentColor"
-    className="h-6 w-6 text-gray-700 dark:text-gray-200 hover:text-primary-500 dark:hover:text-primary-400"
+    className="hover:text-primary-500 dark:hover:text-primary-400 h-6 w-6 text-gray-700 dark:text-gray-200"
   >
     <path
       fillRule="evenodd"
@@ -31,7 +31,7 @@ const Moon = () => (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 20 20"
     fill="currentColor"
-    className="h-6 w-6 text-gray-700 dark:text-gray-200 hover:text-primary-500 dark:hover:text-primary-400"
+    className="hover:text-primary-500 dark:hover:text-primary-400 h-6 w-6 text-gray-700 dark:text-gray-200"
   >
     <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
   </svg>
@@ -68,7 +68,7 @@ const ThemeSwitch = () => {
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
           className="cursor-pointer"
         >
-          {mounted ? (resolvedTheme === 'dark' ? <Moon /> : <Sun />) : <Blank />}
+          {mounted ? resolvedTheme === 'dark' ? <Moon /> : <Sun /> : <Blank />}
         </Menu.Button>
         {/* <div className="hover:text-primary-500 dark:hover:text-primary-400 flex items-center justify-center">
           <MenuButton aria-label="Theme switcher">

@@ -72,7 +72,6 @@ export default function ListLayoutWithTags({
   initialDisplayPosts = [],
   pagination,
 }: ListLayoutProps) {
-
   const pathname = usePathname()
   const tagCounts = tagData as Record<string, number>
   const tagKeys = Object.keys(tagCounts)
@@ -89,7 +88,7 @@ export default function ListLayoutWithTags({
           </h1>
         </div>
         <div className="flex sm:space-x-24">
-          <div className="hidden h-full max-h-screen max-w-[240px] min-w-[240px] flex-wrap overflow-auto rounded-xl bg-gray-50 pt-5  sm:flex dark:bg-gray-900/40 ">
+          <div className="hidden h-full max-h-screen max-w-[240px] min-w-[240px] flex-wrap overflow-auto rounded-xl bg-gray-50 pt-5 sm:flex dark:bg-gray-900/40">
             <div className="px-6 py-4">
               {pathname.startsWith('/blog') ? (
                 <h3 className="text-primary-500 font-bold uppercase">全部文章</h3>
@@ -129,12 +128,11 @@ export default function ListLayoutWithTags({
               {displayPosts.map((post) => {
                 const { path, date, title, summary } = post
                 return (
-                  <li key={path} className="p-6 transition-colors rounded-xl hover:bg-gray-50 dark:hover:bg-gray-900/40 group transition-transform duration-150 transform hover:scale-101">
-                    <Link
-                      href={`/${path}`}
-                      className="block focus:outline-none"
-                      tabIndex={0}
-                    >
+                  <li
+                    key={path}
+                    className="group transform rounded-xl p-6 transition-colors transition-transform duration-150 hover:scale-101 hover:bg-gray-50 dark:hover:bg-gray-900/40"
+                  >
+                    <Link href={`/${path}`} className="block focus:outline-none" tabIndex={0}>
                       <article className="flex flex-col space-y-2 xl:space-y-0">
                         <dl>
                           <dt className="sr-only">Published on</dt>
@@ -146,7 +144,7 @@ export default function ListLayoutWithTags({
                         </dl>
                         <div className="space-y-2">
                           <div>
-                            <h2 className="text-2xl  text-gray-700 dark:text-gray-300 leading-8 font-bold tracking-tight group-hover:text-primary-500 transition-colors duration-150">
+                            <h2 className="group-hover:text-primary-500 text-2xl leading-8 font-bold tracking-tight text-gray-700 transition-colors duration-150 dark:text-gray-300">
                               {title}
                             </h2>
                           </div>

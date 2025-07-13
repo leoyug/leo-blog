@@ -9,7 +9,8 @@
    ========================= */
 @theme {
   /* 字体族 */
-  --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+  --font-sans:
+    var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
   /* 颜色变量（主色、灰色等，采用 oklch 格式）*/
@@ -62,15 +63,13 @@
   --z-80: 80;
 
   /* 自定义颜色 */
-  --color-midnight: #1E212E
-  ;
+  --color-midnight: #1e212e;
 }
 
 /* =========================
    兼容性基础样式
    ========================= */
 @layer base {
-
   /* 统一边框颜色为灰色200 */
   *,
   ::after,

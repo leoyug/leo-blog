@@ -1,24 +1,24 @@
-"use client"
+'use client'
 
 import React, { useEffect, useState } from 'react'
 
 // 目录项类型定义
 interface TocItem {
-  value: string         // 标题文本
-  url: string           // 跳转锚点
-  depth: number         // 层级（2=二级标题，3=三级标题等）
-  children?: TocItem[]  // 子级目录
+  value: string // 标题文本
+  url: string // 跳转锚点
+  depth: number // 层级（2=二级标题，3=三级标题等）
+  children?: TocItem[] // 子级目录
 }
 
 // 组件 props 类型
 interface TocProps {
-  toc: TocItem[]        // 目录数据数组
+  toc: TocItem[] // 目录数据数组
 }
 
 // 获取所有 toc 的 url 扁平化
 function flattenToc(toc: TocItem[]): string[] {
   let urls: string[] = []
-  toc.forEach(item => {
+  toc.forEach((item) => {
     urls.push(item.url)
     if (item.children) {
       urls = urls.concat(flattenToc(item.children))
@@ -60,7 +60,7 @@ const Toc: React.FC<TocProps> = ({ toc }) => {
 
   // 递归渲染目录
   const renderToc = (items: TocItem[]) => (
-    <ul className="pl-2 border-l border-gray-200 dark:border-gray-700">
+    <ul className="border-l border-gray-200 pl-2 dark:border-gray-700">
       {items.map((item) => {
         const isActive = activeHash === item.url
         return (
@@ -73,12 +73,12 @@ const Toc: React.FC<TocProps> = ({ toc }) => {
           >
             <a
               href={item.url}
-              className={`block text-sm truncate max-w ${
+              className={`max-w block truncate text-sm ${
                 isActive
                   ? 'text-primary-500 font-bold'
                   : item.depth === 2
-                  ? 'font-bold'
-                  : 'font-normal'
+                    ? 'font-bold'
+                    : 'font-normal'
               } hover:text-primary-500`}
               style={
                 item.depth > 2
@@ -103,8 +103,8 @@ const Toc: React.FC<TocProps> = ({ toc }) => {
   )
 
   return (
-    <nav aria-label="页面目录" className="text-gray-700 dark:text-gray-300 text-sm">
-      <div className="font-semibold mb-3">目录</div>
+    <nav aria-label="页面目录" className="text-sm text-gray-700 dark:text-gray-300">
+      <div className="mb-3 font-semibold">目录</div>
       {renderToc(toc)}
     </nav>
   )

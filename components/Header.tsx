@@ -24,7 +24,7 @@ const Header = () => {
           </div>
           {/* 如果标题是字符串则显示，否则直接渲染（支持自定义节点） */}
           {typeof siteMetadata.headerTitle === 'string' ? (
-            <div className="hidden h-6 text-2xl font-semibold sm:block text-gray-700 dark:text-gray-200" >
+            <div className="hidden h-6 text-2xl font-semibold text-gray-700 sm:block dark:text-gray-200">
               {siteMetadata.headerTitle}
             </div>
           ) : (

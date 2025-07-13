@@ -9,11 +9,7 @@ interface Props {
 const Tag = ({ text, asSpan = false }: Props) => {
   const content = text.split(' ').join('-')
   if (asSpan) {
-    return (
-      <span className="text-primary-500 mr-3 text-sm font-medium uppercase">
-        {content}
-      </span>
-    )
+    return <span className="text-primary-500 mr-3 text-sm font-medium uppercase">{content}</span>
   }
   return (
     <Link

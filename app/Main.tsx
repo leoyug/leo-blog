@@ -15,16 +15,16 @@ export default function Home({ posts }) {
           <Link
             href={'https://photos.incessantleo.com'}
             target="_blank"
-            className="animate-bounce text-primary-500 underline underline-offset-2 hover:text-primary-600 hover:no-underline dark:text-primary-500 dark:hover:text-primary-400"
+            className="text-primary-500 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-400 animate-bounce underline underline-offset-2 hover:no-underline"
           >
-             &rarr;简历传送门
+            &rarr;简历传送门
           </Link>
         </span>
       </div>
 
-      <div className="divide-y divide-gray-200 dark:divide-gray-700 mt-4">
+      <div className="mt-4 divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pt-6 pb-4 md:space-y-5">
-          <h1 className="text-4xl  leading-8 font-bold tracking-tight text-gray-700 dark:text-gray-200">
+          <h1 className="text-4xl leading-8 font-bold tracking-tight text-gray-700 dark:text-gray-200">
             最近文章
           </h1>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
@@ -39,7 +39,7 @@ export default function Home({ posts }) {
               <li key={slug}>
                 <Link
                   href={`/blog/${slug}`}
-                  className="block p-6 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-900/40 group transition-transform duration-150 transform hover:scale-101"
+                  className="group block transform rounded-xl p-6 transition-transform duration-150 hover:scale-101 hover:bg-gray-50 dark:hover:bg-gray-900/40"
                 >
                   <article>
                     <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
@@ -54,7 +54,7 @@ export default function Home({ posts }) {
                       <div className="space-y-2 xl:col-span-3">
                         <div className="space-y-2">
                           <div>
-                            <h2 className="text-2xl text-gray-700 dark:text-gray-300 leading-8 font-bold tracking-tight group-hover:text-primary-500 transition-colors duration-150">
+                            <h2 className="group-hover:text-primary-500 text-2xl leading-8 font-bold tracking-tight text-gray-700 transition-colors duration-150 dark:text-gray-300">
                               {title}
                             </h2>
                             <div className="flex flex-wrap">

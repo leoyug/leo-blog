@@ -6,7 +6,7 @@ const Card = ({ title, description, imgSrc, href }) => (
   <div className="md max-w-[544px] p-4 md:w-1/2">
     {/* 卡片主体加 group 类 */}
     <div
-      className={`group ${imgSrc ? 'h-full' : ''} overflow-hidden rounded-2xl border-2 border-gray-200/60 dark:border-gray-700/60 hover:shadow-lg dark:hover:border-gray-200/50 transition-shadow`}
+      className={`group ${imgSrc ? 'h-full' : ''} overflow-hidden rounded-2xl border-2 border-gray-200/60 transition-shadow hover:shadow-lg dark:border-gray-700/60 dark:hover:border-gray-200/50`}
     >
       {/* 图片区域，添加 group-hover:scale-105 和 transition-transform */}
       {imgSrc &&
@@ -15,7 +15,7 @@ const Card = ({ title, description, imgSrc, href }) => (
             <Image
               alt={title}
               src={imgSrc}
-              className="object-cover object-center md:h-36 lg:h-48 w-full transition-transform duration-300 group-hover:scale-105"
+              className="w-full object-cover object-center transition-transform duration-300 group-hover:scale-105 md:h-36 lg:h-48"
               width={544}
               height={306}
             />
@@ -24,7 +24,7 @@ const Card = ({ title, description, imgSrc, href }) => (
           <Image
             alt={title}
             src={imgSrc}
-            className="object-cover object-center md:h-36 lg:h-48 w-full transition-transform duration-300 group-hover:scale-105"
+            className="w-full object-cover object-center transition-transform duration-300 group-hover:scale-105 md:h-36 lg:h-48"
             width={544}
             height={306}
           />
@@ -32,7 +32,7 @@ const Card = ({ title, description, imgSrc, href }) => (
       {/* 卡片内容区域，内边距 */}
       <div className="p-6">
         {/* 标题 */}
-        <h2 className="mb-3 text-2xl text-gray-700 dark:text-gray-200 leading-8 font-bold tracking-tight hover:text-primary-500 dark:hover:text-primary-400 transition-colors duration-150">
+        <h2 className="hover:text-primary-500 dark:hover:text-primary-400 mb-3 text-2xl leading-8 font-bold tracking-tight text-gray-700 transition-colors duration-150 dark:text-gray-200">
           {href ? (
             <Link href={href} aria-label={`Link to ${title}`}>
               {title}

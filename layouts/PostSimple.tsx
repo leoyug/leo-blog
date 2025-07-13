@@ -14,7 +14,7 @@ import Toc from '@/components/TOCinline' // 顶部引入目录组件
 // 布局组件的参数类型
 interface LayoutProps {
   content: CoreContent<Blog> // 文章内容对象
-  children: ReactNode        // 文章正文内容
+  children: ReactNode // 文章正文内容
   next?: { path: string; title: string } // 下一篇文章
   prev?: { path: string; title: string } // 上一篇文章
 }
@@ -30,12 +30,12 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
       <ScrollTopAndComment />
       <article>
         {/* 主体区域左右布局：左正文，右目录 */}
-        <div className="flex flex-col xl:flex-row gap-8">
+        <div className="flex flex-col gap-8 xl:flex-row">
           {/* 左侧正文内容 */}
-          <div className="flex-1 min-w-0">
+          <div className="min-w-0 flex-1">
             {/* 文章头部信息 */}
             <header>
-              <div className="space-y-2 md:space-y-5 pb-0 text-left">
+              <div className="space-y-2 pb-0 text-left md:space-y-5">
                 {/* 文章标题 */}
                 <div>
                   <PageTitle>
@@ -49,12 +49,14 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
                     <dt className="sr-only">Published on</dt>
                     {/* 文章发布日期和标签 */}
                     <dd className="flex items-center gap-4 text-base leading-6 font-medium text-gray-500 dark:text-gray-400">
-                      <time className="text-sm" dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
+                      <time className="text-sm" dateTime={date}>
+                        {formatDate(date, siteMetadata.locale)}
+                      </time>
                       {/* 竖线分隔符 */}
                       {tags.length > 0 && <span className="select-none">｜</span>}
                       {/* 文章标签 */}
                       {tags.length > 0 && (
-                        <div className="flex flex-wrap gap-2 items-center">
+                        <div className="flex flex-wrap items-center gap-2">
                           {tags.map((tag) => (
                             <Tag key={tag} text={tag} />
                           ))}
@@ -69,13 +71,14 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
             <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 xl:divide-y-0 dark:divide-gray-700">
               {/* 正文内容 */}
               <div className="divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0 dark:divide-gray-700">
-                <div className="prose dark:prose-invert max-w-none pt-10 pb-8 ">
-                  {children}
-                </div>
+                <div className="prose dark:prose-invert max-w-none pt-10 pb-8">{children}</div>
               </div>
               {/* 评论区（如果开启） */}
               {siteMetadata.comments && (
-                <div className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300" id="comment">
+                <div
+                  className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300"
+                  id="comment"
+                >
                   <Comments slug={slug} />
                 </div>
               )}
@@ -112,7 +115,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
           </div>
           {/* 右侧大纲目录，仅在 xl 及以上屏幕显示，md及以下和移动端都隐藏 */}
           {toc.length > 0 && (
-            <aside className="hidden xl:block xl:w-48 flex-shrink-0">
+            <aside className="hidden flex-shrink-0 xl:block xl:w-48">
               {/* 原 xl:w-64 改为 xl:w-48，宽度缩小 */}
               <div className="sticky top-24">
                 <Toc toc={toc} />
