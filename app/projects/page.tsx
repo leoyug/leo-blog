@@ -9,7 +9,7 @@ export default function Projects() {
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pt-6 pb-4 md:space-y-5">
-          <h1 className="text-4xl leading-8 font-bold tracking-tight text-gray-900 dark:text-gray-100">
+          <h1 className="text-4xl leading-8 font-bold tracking-tight text-gray-700 dark:text-gray-200">
             作品集
           </h1>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
