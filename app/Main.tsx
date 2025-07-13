@@ -39,7 +39,7 @@ export default function Home({ posts }) {
               <li key={slug}>
                 <Link
                   href={`/blog/${slug}`}
-                  className="block p-6 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-900/20 group transition-transform duration-150 transform hover:scale-101"
+                  className="block p-6 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-900/40 group transition-transform duration-150 transform hover:scale-101"
                 >
                   <article>
                     <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
