@@ -15,9 +15,9 @@ import {
 const Sun = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 20 20"
+    viewBox="0 -1 20 20"
     fill="currentColor"
-    className="h-6 w-6 hover:text-primary-500 dark:hover:text-primary-400"
+    className="h-6 w-6 text-gray-700 dark:text-gray-200 hover:text-primary-500 dark:hover:text-primary-400"
   >
     <path
       fillRule="evenodd"
@@ -31,7 +31,7 @@ const Moon = () => (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 20 20"
     fill="currentColor"
-    className="h-6 w-6 hover:text-primary-500 dark:hover:text-primary-400"
+    className="h-6 w-6 text-gray-700 dark:text-gray-200 hover:text-primary-500 dark:hover:text-primary-400"
   >
     <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
   </svg>

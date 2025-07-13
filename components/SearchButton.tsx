@@ -15,10 +15,10 @@ const SearchButton = () => {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
+          viewBox="0 0 26 26"
+          strokeWidth={2}
           stroke="currentColor"
-          className="cursor-pointer hover:text-primary-500 dark:hover:text-primary-400 h-6 w-6 text-gray-900 dark:text-gray-100"
+          className="cursor-pointer hover:text-primary-500 dark:hover:text-primary-400 h-6 w-6 text-gray-700 dark:text-gray-200"
         >
           <path
             strokeLinecap="round"
