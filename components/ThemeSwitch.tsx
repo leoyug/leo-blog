@@ -17,7 +17,7 @@ const Sun = () => (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 20 20"
     fill="currentColor"
-    className="group:hover:text-gray-100 h-6 w-6"
+    className="h-6 w-6 hover:text-primary-500 dark:hover:text-primary-400"
   >
     <path
       fillRule="evenodd"
@@ -31,7 +31,7 @@ const Moon = () => (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 20 20"
     fill="currentColor"
-    className="group:hover:text-gray-100 h-6 w-6"
+    className="h-6 w-6 hover:text-primary-500 dark:hover:text-primary-400"
   >
     <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
   </svg>
@@ -64,12 +64,18 @@ const ThemeSwitch = () => {
   return (
     <div className="flex items-center">
       <Menu as="div" className="relative inline-block text-left">
-        <div className="hover:text-primary-500 dark:hover:text-primary-400 flex items-center justify-center">
+        <Menu.Button
+          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+          className="cursor-pointer"
+        >
+          {mounted ? (resolvedTheme === 'dark' ? <Moon /> : <Sun />) : <Blank />}
+        </Menu.Button>
+        {/* <div className="hover:text-primary-500 dark:hover:text-primary-400 flex items-center justify-center">
           <MenuButton aria-label="Theme switcher">
             {mounted ? resolvedTheme === 'dark' ? <Moon /> : <Sun /> : <Blank />}
           </MenuButton>
-        </div>
-        <Transition
+        </div> */}
+        {/* <Transition
           as={Fragment}
           enter="transition ease-out duration-100"
           enterFrom="transform opacity-0 scale-95"
@@ -130,7 +136,7 @@ const ThemeSwitch = () => {
               </div>
             </RadioGroup>
           </MenuItems>
-        </Transition>
+        </Transition> */}
       </Menu>
     </div>
   )

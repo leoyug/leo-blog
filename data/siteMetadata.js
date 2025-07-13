@@ -3,7 +3,7 @@ const siteMetadata = {
   title: 'Bleog',
   author: 'Leo',
   headerTitle: 'Bleog',
-  description: '一个会写点代码的设计人的博客。',
+  description: '最近的一些学习记录、生活分享。',
   language: 'zh-CN',
   theme: 'system', // system, dark or light
   siteUrl: 'https://leo-blog-tawny.vercel.app/',

@@ -1,17 +1,31 @@
-@import 'tailwindcss';
-@plugin "@tailwindcss/forms";
-@plugin '@tailwindcss/typography';
-@source '../node_modules/pliny';
-@custom-variant dark (&:where(.dark, .dark *));
+@import 'tailwindcss'; /* 引入 Tailwind 的基础样式 */
+@plugin "@tailwindcss/forms"; /* 表单样式插件 */
+@plugin '@tailwindcss/typography'; /* 富文本排版插件 */
+@source '../node_modules/pliny'; /* 引入 pliny 主题的自定义样式 */
+@custom-variant dark (&:where(.dark, .dark *)); /* 自定义 dark 变体 */
 
-/* Core theme configuration */
+/* =========================
+   主题核心配置
+   ========================= */
 @theme {
-  /* Font families */
+  /* 字体族 */
   --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
-  /* Colors */
-  /* Copied from https://tailwindcss.com/docs/theme#default-theme-variable-reference */
+  /* 颜色变量（主色、灰色等，采用 oklch 格式）*/
+  /* 主色 emerald */
+  --color-primary-50: oklch(0.979 0.021 166.113);
+  --color-primary-100: oklch(0.95 0.052 163.051);
+  --color-primary-200: oklch(0.905 0.093 164.15);
+  --color-primary-300: oklch(0.845 0.143 164.978);
+  --color-primary-400: oklch(0.765 0.177 163.223);
+  --color-primary-500: oklch(0.696 0.17 162.48);
+  --color-primary-600: oklch(0.596 0.145 163.225);
+  --color-primary-700: oklch(0.508 0.118 165.612);
+  --color-primary-800: oklch(0.432 0.095 166.913);
+  --color-primary-900: oklch(0.378 0.077 168.94);
+  --color-primary-950: oklch(0.262 0.051 172.552);
+  /* 主色 pink
   --color-primary-50: oklch(0.971 0.014 343.198);
   --color-primary-100: oklch(0.948 0.028 342.258);
   --color-primary-200: oklch(0.899 0.061 343.231);
@@ -23,7 +37,7 @@
   --color-primary-800: oklch(0.459 0.187 3.815);
   --color-primary-900: oklch(0.408 0.153 2.432);
   --color-primary-950: oklch(0.284 0.109 3.907);
-
+*/
   --color-gray-50: oklch(0.985 0.002 247.839);
   --color-gray-100: oklch(0.967 0.003 264.542);
   --color-gray-200: oklch(0.928 0.006 264.531);
@@ -36,27 +50,27 @@
   --color-gray-900: oklch(0.21 0.034 264.665);
   --color-gray-950: oklch(0.13 0.028 261.692);
 
-  /* Line heights */
+  /* 行高 */
   --line-height-11: 2.75rem;
   --line-height-12: 3rem;
   --line-height-13: 3.25rem;
   --line-height-14: 3.5rem;
 
-  /* Z-index values */
+  /* z-index 层级 */
   --z-60: 60;
   --z-70: 70;
   --z-80: 80;
+
+  /* 自定义颜色 */
+  --color-midnight: #1D2023;
 }
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
+/* =========================
+   兼容性基础样式
+   ========================= */
 @layer base {
+
+  /* 统一边框颜色为灰色200 */
   *,
   ::after,
   ::before,
@@ -65,11 +79,13 @@
     border-color: var(--color-gray-200, currentColor);
   }
 
+  /* 链接和按钮的聚焦轮廓色为主色 */
   a,
   button {
     outline-color: var(--color-primary-500);
   }
 
+  /* 聚焦时显示主色轮廓和圆角 */
   a:focus-visible,
   button:focus-visible {
     outline: 2px solid;
@@ -78,7 +94,11 @@
   }
 }
 
+/* =========================
+   工具类扩展
+   ========================= */
 @layer utilities {
+  /* 富文本内容的链接和标题样式 */
   .prose {
     & a {
       color: var(--color-primary-500);
@@ -101,6 +121,7 @@
     }
   }
 
+  /* 反色（暗色模式）下的富文本样式 */
   .prose-invert {
     & a {
       color: var(--color-primary-500);
@@ -117,36 +138,41 @@
   }
 }
 
+/* =========================
+   其它自定义样式
+   ========================= */
+
+/* 任务列表样式（去掉前置符号） */
 .task-list-item::before {
   @apply hidden;
 }
-
 .task-list-item {
   @apply list-none;
 }
 
+/* 脚注样式 */
 .footnotes {
   @apply mt-12 border-t border-gray-200 pt-8 dark:border-gray-700;
 }
-
 .data-footnote-backref {
   @apply no-underline;
 }
 
+/* 文献引用样式 */
 .csl-entry {
   @apply my-5;
 }
 
+/* 隐藏滚动条 */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
-
 .no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
+  -ms-overflow-style: none; /* IE 和 Edge */
   scrollbar-width: none; /* Firefox */
 }
 
-/* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
+/* 解决表单自动填充高亮问题 */
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
   transition:
@@ -154,21 +180,23 @@ input:-webkit-autofill:focus {
     color 600000s 0s;
 }
 
+/* 数学公式溢出处理 */
 .katex-display {
   overflow: auto hidden;
 }
 
+/* 文章标题锚点样式 */
 .content-header-link {
   opacity: 0;
   margin-left: -24px;
   padding-right: 4px;
 }
-
 .content-header:hover .content-header-link,
 .content-header-link:hover {
   opacity: 1;
 }
 
+/* 链接图标样式 */
 .linkicon {
   display: inline-block;
   vertical-align: middle;
