@@ -15,7 +15,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { notFound } from 'next/navigation'
 
 // 默认布局
-const defaultLayout = 'PostLayout'
+const defaultLayout = 'PostSimple' // 这里由 PostLayout 改为 PostSimple
 // 可用布局映射
 const layouts = {
   PostSimple,
