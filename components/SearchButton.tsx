@@ -15,8 +15,8 @@ const SearchButton = () => {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
-          viewBox="0 0 26 26"
-          strokeWidth={2}
+          viewBox="0 -1 28 28"
+          strokeWidth={2.5}
           stroke="currentColor"
           className="hover:text-primary-500 dark:hover:text-primary-400 h-6 w-6 cursor-pointer text-gray-700 dark:text-gray-200"
         >
