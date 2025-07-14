@@ -48,7 +48,7 @@ export default [
     },
 
     rules: {
-      'prettier/prettier': 'error',
+      'prettier/prettier': 'off', // 关闭 ESLint 的 Prettier 检查
       'react/react-in-jsx-scope': 'off',
 
       'jsx-a11y/anchor-is-valid': [
