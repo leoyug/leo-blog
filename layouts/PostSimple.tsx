@@ -10,6 +10,7 @@ import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import Tag from '@/components/Tag'
 import Toc from '@/components/TOCinline' // 顶部引入目录组件
+import Comment from '@/components/Comment' //
 
 // 布局组件的参数类型
 interface LayoutProps {
@@ -73,15 +74,22 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
               <div className="divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0 dark:divide-gray-700">
                 <div className="prose dark:prose-invert max-w-none pt-10 pb-8">{children}</div>
               </div>
-              {/* 评论区（如果开启） */}
-              {siteMetadata.comments && (
+              {/* 原始评论区（如果开启） */}
+              {/* {siteMetadata.comments && (
                 <div
                   className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300"
                   id="comment"
                 >
                   <Comments slug={slug} />
                 </div>
-              )}
+              )} */}
+              {/* waline评论区 */}
+              <div
+                className="pt-8 text-center text-gray-700 dark:text-gray-300"
+                id="comment"
+                >
+               <Comment serverURL={process.env.COMMENT_SERVER_URL!} />
+              </div>
               {/* 页脚：上一篇/下一篇导航 */}
               <footer>
                 <div className="flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base">

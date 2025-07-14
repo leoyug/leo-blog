@@ -201,3 +201,72 @@ input:-webkit-autofill:focus {
   display: inline-block;
   vertical-align: middle;
 }
+
+/* =========================
+   Waline 评论区自定义样式
+   ========================= */
+
+
+/* 如果需要更细致地定制 Waline 内部面板、输入框等区域，可以加： */
+
+/* 面板区域 */
+.dark #waline .wl-panel{
+  background-color: var(--color-midnight) !important;
+  border-color: var(--color-gray-700) !important;
+} 
+
+/* 编辑器区域 */
+#waline .wl-editor {
+
+}
+#waline .wl-editor:focus {
+  box-shadow: 0 0 0 0px var(--color-primary-500);
+  background-color: var(--color-gray-100) !important;
+}
+.dark #waline .wl-editor {
+  color: var(--color-gray-300) !important;
+}
+.dark #waline .wl-editor:focus {
+  box-shadow: 0 0 0 0px var(--color-primary-500);
+  background-color: oklch(0.21 0.034 264.665 / 0.4) !important; /* 40% 不透明度 */
+}
+
+/* 链接样式 */
+#waline a {
+  color: var(--color-primary-500) !important;
+  font-weight: 500 !important;
+}
+#waline a:hover {/* 悬停链接颜色 */
+  color: var(--color-primary-600) !important;
+}
+.dark #waline a:hover {/* 黑暗模式悬停链接颜色 */
+  color: var(--color-primary-400) !important;
+}
+
+#waline .wl-icon {
+  stroke: var(--color-primary-500) !important;
+}
+
+/* 按钮样式 */
+#waline .wl-btn {
+  font-weight: 500 !important;
+  background-color: var(--color-primary-500) !important;
+  color: var(--color-gray-100) !important;
+  border: none !important;
+}
+#waline .wl-btn:hover {/* 按钮悬停颜色 */
+  background-color: var(--color-primary-600) !important;
+}
+.dark #waline .wl-btn:hover {/* 黑暗模式按钮悬停颜色 */
+  background-color: var(--color-primary-400) !important;
+}
+
+/* 评论区的排序选项 */
+#waline .wl-sort {
+  color: var(--color-primary-500) !important;
+  font-weight: 500 !important;
+}
+#waline .wl-sort .active {
+  color: var(--color-primary-500) !important;
+}
+
