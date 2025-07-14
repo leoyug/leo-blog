@@ -6,7 +6,7 @@ const siteMetadata = {
   description: '最近的一些学习记录、生活分享。',
   language: 'zh-CN',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://leo-blog-tawny.vercel.app/',
+  siteUrl: 'https://incessantleo.com',
   siteRepo: 'https://github.com/leoyug/leo-blog',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/bleog-card.png`,
