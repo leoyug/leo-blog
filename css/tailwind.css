@@ -3,6 +3,7 @@
 @plugin '@tailwindcss/typography'; /* 富文本排版插件 */
 @source '../node_modules/pliny'; /* 引入 pliny 主题的自定义样式 */
 @custom-variant dark (&:where(.dark, .dark *)); /* 自定义 dark 变体 */
+@waline/client; /* 引入 Waline 评论系统的样式 */
 
 /* =========================
    主题核心配置
@@ -206,67 +207,115 @@ input:-webkit-autofill:focus {
    Waline 评论区自定义样式
    ========================= */
 
+/* 覆盖 Waline CSS 变量来修改主题色 */
+:root {
+  --waline-theme-color: var(--color-primary-500) !important; /*主题色*/
+  --waline-active-color: var(--color-primary-600) !important; /*主题色激活态*/
+  --waline-border: 1px solid var(--color-gray-300) !important; /*面板外边框*/
+  --waline-bg-color: white !important; /*面板背景色*/
+  /* --waline-bg-color-light:var(--color-gray-100) !important; /*focus输入框背景色*/
 
-/* 如果需要更细致地定制 Waline 内部面板、输入框等区域，可以加： */
-
-/* 面板区域 */
-.dark #waline .wl-panel{
-  background-color: var(--color-midnight) !important;
-  border-color: var(--color-gray-700) !important;
-} 
-
-/* 编辑器区域 */
-#waline .wl-editor {
-
-}
-#waline .wl-editor:focus {
-  box-shadow: 0 0 0 0px var(--color-primary-500);
-  background-color: var(--color-gray-100) !important;
-}
-.dark #waline .wl-editor {
-  color: var(--color-gray-300) !important;
-}
-.dark #waline .wl-editor:focus {
-  box-shadow: 0 0 0 0px var(--color-primary-500);
-  background-color: oklch(0.21 0.034 264.665 / 0.4) !important; /* 40% 不透明度 */
+  --waline-disable-bg-color: var(--color-gray-100) !important;
+  --waline-disable-color: var(--color-gray-400) !important;
+  --waline-bq-color: var(--color-primary-50) !important;
+  
 }
 
-/* 链接样式 */
-#waline a {
-  color: var(--color-primary-500) !important;
-  font-weight: 500 !important;
-}
-#waline a:hover {/* 悬停链接颜色 */
-  color: var(--color-primary-600) !important;
-}
-.dark #waline a:hover {/* 黑暗模式悬停链接颜色 */
-  color: var(--color-primary-400) !important;
+/* 暗色模式下的 Waline 变量 */
+.dark {
+  
+  --waline-theme-color: var(--color-primary-500) !important; /*主题色*/
+  --waline-active-color: var(--color-primary-400) !important; /*主题色激活态*/
+  --waline-border: 1px solid var(--color-gray-700) !important; /*面板外边框*/
+  --waline-bg-color: var(--color-midnight) !important; /*面板背景色*/
+  /* --waline-bg-color-light: oklch(0.21 0.034 264.665 / 0.4) !important; /*focus输入框背景色*/
+
+  --waline-bg-color-hover: var(--color-gray-700) !important;
+  --waline-border-color: var(--color-gray-600) !important;
+  --waline-disable-bg-color: var(--color-gray-800) !important;
+  --waline-disable-color: var(--color-gray-500) !important;
+  --waline-bq-color: var(--color-gray-700) !important;
+  --waline-info-bg-color: var(--color-gray-800) !important;
+  --waline-info-color: var(--color-gray-300) !important;
+
 }
 
-#waline .wl-icon {
-  stroke: var(--color-primary-500) !important;
+
+/* Waline 自定义样式 */
+
+/*输入框*/
+#waline .wl-editor {  /* 输入框容器样式 */
+  /* background-color: var(--color-gray-50) !important;  背景色 */
+  color: var(--color-gray-700) !important;            /* 文字颜色 */
+  border-radius: 0.5rem;                              /* 圆角 */
+  margin-top: 0.4rem !important;                      /* 顶部外边距 */
+  margin-bottom: -0.4rem !important;                  /* 底部负外边距，避免撑大外部容器 */
+}
+#waline .wl-editor:hover { /* 输入框容器悬停时样式 */
+  background-color: var(--color-gray-100) !important; /* 悬停背景色 */
+}
+#waline .wl-editor:focus { /* 输入框容器聚焦时样式 */
+  box-shadow: none !important;                        /* 去除聚焦阴影 */
+  background-color: var(--color-gray-100) !important; /* 聚焦时背景色 */
 }
 
-/* 按钮样式 */
-#waline .wl-btn {
-  font-weight: 500 !important;
-  background-color: var(--color-primary-500) !important;
-  color: var(--color-gray-100) !important;
-  border: none !important;
+.dark #waline .wl-editor {  /* 暗色模式下输入框容器样式 */
+  /* background-color: oklch(0.21 0.034 264.665 / 0.4) !important; 暗色背景，带透明度 */
+  color: var(--color-gray-300) !important;                      /* 暗色文字 */
 }
-#waline .wl-btn:hover {/* 按钮悬停颜色 */
-  background-color: var(--color-primary-600) !important;
+.dark #waline .wl-editor:hover { /* 暗色模式下输入框容器悬停样式 */
+  background-color: oklch(0.21 0.034 264.665 / 0.6) !important; /* 暗色悬停背景 */
 }
-.dark #waline .wl-btn:hover {/* 黑暗模式按钮悬停颜色 */
-  background-color: var(--color-primary-400) !important;
+.dark #waline .wl-editor:focus { /* 暗色模式下输入框容器聚焦样式 */
+  box-shadow: none !important;                                   /* 去除聚焦阴影 */
+  background-color: oklch(0.21 0.034 264.665 / 0.6) !important;  /* 聚焦时更深背景 */
 }
 
-/* 评论区的排序选项 */
-#waline .wl-sort {
-  color: var(--color-primary-500) !important;
-  font-weight: 500 !important;
+/* 用户信息输入框样式 */
+#waline .wl-input-label { /* 用户信息输入框容器样式 */
+
+  background-color: var(--color-gray-50) !important; /* 背景色 */
 }
-#waline .wl-sort .active {
-  color: var(--color-primary-500) !important;
+#waline .wl-input { 
+  border-radius: 0.2rem;                       /* 输入框圆角 */
+  box-shadow: none !important;                 /* 去除阴影 */
+  color: var(--color-gray-700) !important;     /* 文字颜色 */
+  width: calc(100% - 0.6rem) !important;       /* 左右各收缩0.3rem */
+  height: calc(100% - 0.6rem) !important;      /* 上下各收缩0.3rem */
+  margin: 0.3rem !important;                   /* 四周留出0.3rem边距 */
+  box-sizing: border-box !important;           /* 包含padding和border在内 */
+  font-size: 0.75rem !important;               /* 字体大小 */
+}
+#waline .wl-input:hover { /* 输入框悬停时样式 */
+  background-color: var(--color-gray-100) !important; /* 悬停背景色 */
+}
+#waline .wl-input:focus { /* 输入框聚焦时样式 */
+  background-color: var(--color-gray-100) !important; /* 聚焦背景色 */
 }
 
+.dark #waline .wl-input { /* 暗色模式下输入框样式 */
+  color: var(--color-gray-300) !important; /* 文字颜色 */
+}
+.dark #waline .wl-input:hover { /* 暗色模式下悬停样式 */
+  background-color: oklch(0.21 0.034 264.665 / 0.6) !important; /* 悬停背景色 */
+}
+.dark #waline .wl-input:focus { /* 暗色模式下聚焦样式 */
+  color: var(--color-gray-300) !important; /* 文字颜色 */
+  background-color: oklch(0.21 0.034 264.665 / 0.6) !important; /* 聚焦背景色 */
+}
+
+/* 按钮 */
+#waline .wl-btn { /* 提交按钮容器样式 */
+  font-weight: 500;
+}
+.dark #waline .wl-btn { /* 提交按钮容器样式 */
+  color: var(--color-gray-200) !important; /* 背景色*/
+  
+}
+.dark #waline .wl-btn:hover { /* 提交按钮容器样式 */
+  color: var(--color-primary-500) !important; /* 背景色*/
+}
+
+.dark #waline .primary.wl-btn { /* 提交按钮容器样式 */
+  color: var(--color-gray-200) !important; /* 背景色 */
+  }
